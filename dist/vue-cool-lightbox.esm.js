@@ -508,6 +508,9 @@ var script = {
           this$1.hasPreviousButton 
             ? this$1.$refs.firstNavButton.focus() 
             : this$1.$refs.lastNavButton.focus();
+
+          // announce lightbox open to screen readers
+          this$1.srSpeak(("Lighbox open with " + (this$1.items.length) + " items inside. Use left and right arrow keys swipe through images, tab to navigate the lightbox, and escape to exit."));
         }
 
         if(prev !== null) {
@@ -1764,6 +1767,22 @@ var script = {
     hasPrevious: function hasPrevious() {
       return (this.imgIndex - 1 >= 0)
     },
+    srSpeak: function srSpeak(text, priority, removeDuration){
+      var el = document.createElement("div");
+      var id = "speak-" + Date.now();
+      el.setAttribute("id", id);
+      el.setAttribute("aria-live", priority || "polite");
+      el.classList.add("visually-hidden");
+      document.body.appendChild(el);
+    
+      window.setTimeout(function () {
+        document.getElementById(id).innerHTML = text;
+      }, 100);
+    
+      window.setTimeout(function () {
+          document.body.removeChild(document.getElementById(id));
+      }, removeDuration || 1000);  
+    }
   }
 };
 
