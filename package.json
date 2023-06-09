@@ -1,7 +1,7 @@
 {
   "name": "accessible-vue-cool-lightbox",
-  "description": "A fork of vue-cool-lightbox by Lucas Pulliese <lucaspulliese10@gmail.com> - A pretty Vue.js component to display an image gallery lightbox inspired by fancybox",
-  "version": "0.0.6",
+  "description": "An accessible fork of vue-cool-lightbox by Lucas Pulliese <lucaspulliese10@gmail.com> - A pretty Vue.js component to display an image gallery lightbox inspired by fancybox",
+  "version": "0.0.7",
   "private": false,
   "author": "Ryan Soeder",
   "license": "MIT",
